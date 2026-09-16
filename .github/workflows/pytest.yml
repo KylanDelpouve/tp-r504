@@ -8,7 +8,7 @@ jobs:
         python-version: ["3.8","3.10"] # test de 2 version de python en parallele
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Show branch informations and OS
         run: |
@@ -16,7 +16,7 @@ jobs:
           echo "OS du runner: ${{ runner.os }}"
 
       - name: Set up Python for Demo
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
