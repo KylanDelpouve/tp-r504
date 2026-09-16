@@ -8,7 +8,7 @@ jobs:
         python-version: ["3.8","3.10"] # test de 2 version de python en parallele
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Show branch informations and OS
         run: |
