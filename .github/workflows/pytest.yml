@@ -3,6 +3,10 @@ on: [push]
 jobs:
   test1:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8","3.10"] # test de 2 version de python en parallele
+
     steps:
       - uses: actions/checkout@v3
 
@@ -13,7 +17,14 @@ jobs:
 
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Show used version of python
+        run: python --version
+
       - name: Install dependencies
         run: pip install pytest
+
       - name: Run tests
         run: pytest TP1/test.py
